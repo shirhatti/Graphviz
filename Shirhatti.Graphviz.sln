@@ -5,7 +5,7 @@ VisualStudioVersion = 16.6.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D1320260-1A05-4F08-BFC8-74D17E9BA52D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shirhatti.Graphviz", "src\Shirhatti.GraphViz\Shirhatti.Graphviz.csproj", "{4A3A6BEF-0AF0-4895-BEEA-8BF7D37241E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shirhatti.Graphviz", "src\Shirhatti.Graphviz\Shirhatti.Graphviz.csproj", "{4A3A6BEF-0AF0-4895-BEEA-8BF7D37241E6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{7B896725-D14C-4FE4-8523-4704253691BC}"
 EndProject
