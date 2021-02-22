@@ -36,7 +36,6 @@ namespace Shirhatti.Graphviz
                 switch (libraryName)
                 {
                     case "gvc":
-                        _ = TryLoadGraphvizBinary("gvplugin_pango");
                         return TryLoadGraphvizBinary("gvc");
                     case "cgraph":
                         return TryLoadGraphvizBinary("cgraph");
