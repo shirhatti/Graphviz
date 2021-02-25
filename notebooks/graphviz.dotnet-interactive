@@ -1,0 +1,54 @@
+#!pwsh
+
+dotnet build ..
+
+#!csharp
+
+using System;
+using System.IO;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+
+if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+{
+  var graphVizBinPath = Path.Combine(
+    Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles),
+    "Graphviz", "bin");
+  NativeLibrary.SetDllImportResolver(Assembly.GetExecutingAssembly(), (libraryName, assembly, searchPath) =>
+  {
+      if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+      {
+
+          if (NativeLibrary.TryLoad(Path.Join(graphVizBinPath, libraryName), out IntPtr handle)) return handle;
+      }
+      return default;
+  });
+}
+
+#!csharp
+
+#r "..\src\Shirhatti.Graphviz\bin\Debug\netstandard2.1\Shirhatti.Graphviz.dll"
+
+#!csharp
+
+using Shirhatti.Graphviz;
+
+var graphviz = new Graphviz();
+Console.WriteLine(graphviz.BuildDate);
+Console.WriteLine(graphviz.Version);
+
+#!csharp
+
+using System.Text;
+using Shirhatti.Graphviz;
+
+var dot = "digraph D { A-> { B, C, D} -> { F} }";
+
+var cgraph = new Cgraph(dot);
+var image = graphviz.RenderDot(cgraph, OutputFormat.Svg);
+var svgString = Encoding.ASCII.GetString(image);
+
+#!csharp
+
+html(svgString)
