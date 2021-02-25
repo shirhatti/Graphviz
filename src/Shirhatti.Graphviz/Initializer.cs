@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace Shirhatti.Graphviz
 {
+#if NET6_0
     public class Initializer
     {
         private static string _graphVizBinPath = Path.Combine(
@@ -44,4 +45,5 @@ namespace Shirhatti.Graphviz
             return default;
         }
     }
+#endif
 }
